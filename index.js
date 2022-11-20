@@ -110,12 +110,20 @@ For example: invoking getInningScore(inning) might return this object:
 }
   */
 
-
-function getInningScore(inningCB) {
-  return finalScore(inningCB, 4);
+// This is the ask
+function getInningScoreAsk(inningCB) {
+  return {
+    Home: inningCB(),
+    Away: inningCB()
+  };
 }
-console.log('task4:', getInningScore(inning));
+console.log('task4:', getInningScoreAsk(inning));
 
+// another approch
+function getInningScore(inningCB, num) {
+  return finalScore(inningCB, num);
+}
+console.log('task4:', getInningScore(inning, 4));
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
