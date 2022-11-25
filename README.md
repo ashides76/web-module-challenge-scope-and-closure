@@ -82,9 +82,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+Closuer is within the personalDice function where inner fuction is returns declared variable within function block. That's where the clouser happens. 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+Rolled dice creates a new memory for that function. name argumenent is the same. 
 c. What is the lexical scope of `newRoll`? 
-
+meomory. 
 
 ### Task 3 - Stretch Goals
 
