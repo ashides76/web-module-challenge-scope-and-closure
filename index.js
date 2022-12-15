@@ -30,7 +30,7 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  counter 1 has declared private variable count which will remain in scope of counterMaker function when counter1 function is excuted.  Counter 2 function using count variable that is declared gloably and can be accessed by any calling function.
+  counter 1 has declared private variable count which will remain within the scope of counterMaker function, anytime when counter1 function is invoked.  Counter 2 function is using global declared variable and that can be accessed by any calling function.
   
   2. Which of the two uses a closure? How can you tell?
   counter 1 code has inner counter function protected by the parent counterMaker function including count variable. 
@@ -111,19 +111,19 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 // This is the ask
-function getInningScoreAsk(inningCB) {
+function getInningScore(inningCB) {
   return {
     Home: inningCB(),
     Away: inningCB()
   };
 }
-console.log('task4:', getInningScoreAsk(inning));
+console.log('task4:', getInningScore(inning));
 
 // another approch
-function getInningScore(inningCB, num) {
+function getInningScoreAsk(inningCB, num) {
   return finalScore(inningCB, num);
 }
-console.log('task4:', getInningScore(inning, 4));
+console.log('task4:', getInningScoreAsk(inning, 4));
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -165,12 +165,14 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+// let score = [];
+function scoreboard(getInningScoreCB, inningCB, num) {
+  for (let i = 0; i < num; i++){
+    console.log(`"Inning ${[i + 1]}: ${Object.entries(getInningScoreCB(inningCB))}",`)
+  }
 }
-
-
-
+// console.log(score);
+console.log("Strech 1:", scoreboard(getInningScore, inning, 9))
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
